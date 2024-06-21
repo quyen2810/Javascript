@@ -1,89 +1,98 @@
 * {
-    margin:0;
-    padding: 0
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-}
-
-body{
+  }
+  
+  button {
+    all: unset;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    background-image: radial-gradient(ellipse, #632f63, #c5bac8);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Inter', sans-serif;
-    height: 100vh;
-    background-image: radial-gradient(ellipse, #a7048e, #c7b7b7);
-}
-
-.counter{
+  }
+  
+  .counter {
+    background-color: #8c4e75;
+    width: 476px;
+    height: 615px;
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
-    background-color: #6e025e;
-    width: 500px;
-    height: 630px;
-    border-radius: 40px;
     align-items: center;
     
-}
+  }
 
-.counter__title{
+  .counter__title {
     opacity: 0.6;
     text-transform: uppercase;
     letter-spacing: 1px;
     width: 200px;
     text-align: center;
-    line-height: 1.1;
-    font-size: 35px;
-    color: rgb(214, 206, 206);
-    margin-top: 40px;
-}
-
-.counter__value{
-    color: rgb(214, 206, 206);
+    line-height: 0.9;
+    font-weight: 500;
+    font-size: 32px;
+    margin-top: 60px;
+  }
+  
+  .counter__value {
+    color: #25071a;
     font-size: 200px;
+    font-weight: 600;
     margin-top: 10px;
-}
-
-.counter__reset-button{
-    display: flex;
-    background-color: #421344;
-    flex:1;
-    height: 116px;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-}
-
-.counter__reset-icon{
-    opacity: 0.8;
+  }
+  
+  .counter__reset-icon {
+    opacity: 0.3;
     font-size: 35px;
-    color: rgb(214, 206, 206);
-}
-
-.counter__button{
-    opacity: 0.8;
-    background-color: #290c2a;
+    
+  }
+  
+  .counter__buttons {
+    background-color: #220725;
     height: 116px;
     width: 100%;
     margin-top: auto;
-    border-bottom-right-radius: 40px;
-    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
     display: flex;
-    flex:1;
+  }
+  
+  .counter__button {
+    flex: 1;
+    display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.counter__decrease-button{
-
-}
-
-.counter__decrease-icon{
-
-}
-
-.counter__increase-button{
-
-}
-
-.counter__decrease-icon{
-
-}
+    
+  }
+  
+  .counter__button:hover {
+    background-color: #171317;
+  }
+  
+  .counter__button--decrease {
+  
+  }
+  
+  .counter__button--increase {
+    border-left: 1px solid rgba(190, 76, 173, 0.15);
+  }
+  
+  .counter__icon {
+    color: #b96bc4;
+    opacity: 0.9;
+    font-size: 40px;
+  }
+  
+  .counter__icon--minus {
+  
+  }
+  
+  .counter__icon--plus {
+    
+  }
