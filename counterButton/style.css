@@ -25,14 +25,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+    transition: all 0.4s;
+  }
+
+  .counter__limit {
+    background-color: #633953;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .counter__title {
     opacity: 0.6;
     text-transform: uppercase;
     letter-spacing: 1px;
-    width: 200px;
+    width: 350px;
     text-align: center;
     line-height: 0.9;
     font-weight: 500;
@@ -79,6 +87,13 @@
     cursor: pointer;
   }
   
+  .counter__button__limit {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .counter__button:hover {
     background-color: #171317;
   }
