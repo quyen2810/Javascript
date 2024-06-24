@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter, sans-serif';
+    background-color: #cfe0e7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    height: 254px;
+    width: 100%;
+    background-image: linear-gradient(
+        to right, 
+        rgba(141, 30, 143, 0.9), 
+        rgba(96, 156, 190, 0.9)),
+        url('https://images.unsplash.com/photo-1520034475321-cbe63696469a?w=1400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bmlnaHQlMjBzdGFyc3xlbnwwfHwwfHx8MA%3D%3D');
+
+}
+
+.first-heading {
+    font-size: 55px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: white;
+    margin-top: 75px;
+}
+
+.first-heading--special {
+    font-weight: 30;
+}
+
+.container {
+    width: 1050px;
+    height: 520px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px rgba(0,0,0,0.1);
+    margin-top: 55px;
+    display: flex;
+    overflow: hidden;
+}
+
+.textarea {
+    all: unset;
+    resize: none;
+    flex: 2;
+    font: inherit;
+    padding: 32px 40px;
+    font-size: 22px;
+}
+
+.textarea::placeholder {
+    font-weight: 500;
+    color: #96a4aa;
+}
+
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1.3;
+    background-color: rgb(212, 212, 243);
+}
+
+.stat {
+    flex: 1 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.stat:nth-child(1), .stat:nth-child(2) {
+    border-bottom: 1px solid rgb(0, 0, 0, 0.08);
+}
+
+.stat:nth-child(2), .stat:nth-child(4) {
+    border-left: 1px solid rgb(0, 0, 0, 0.08);
+}
+
+.stat__number {
+    color: rgb(130, 130, 139);
+    font-weight: 600;
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.second-heading {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: rgb(123, 121, 150);
+}
+
+.footer {
+    width: 1050px;
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.4;
+}
