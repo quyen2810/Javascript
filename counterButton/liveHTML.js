@@ -33,26 +33,28 @@ function decrementCounter() {
     decreaseButtonEl.blur(); //unfocus the button
 }
 
-increaseButtonEl.addEventListener('click', incrementCounter);
-decreaseButtonEl.addEventListener('click', decrementCounter);
-resetButtonEl.addEventListener('click', () => {
+
+function resetCounter() {
     counterValueEl.textContent = 0;
     counterEl.classList.remove('counter__limit');
     counterTitleEl.textContent = 'Years together';
     decreaseButtonEl.disabled = false;
     increaseButtonEl.disabled = false;
     resetButtonEl.blur(); //unfocus the button
-})
+}
+
+increaseButtonEl.addEventListener('click', incrementCounter);
+decreaseButtonEl.addEventListener('click', decrementCounter);
+resetButtonEl.addEventListener('click', resetCounter);
 
 
 document.addEventListener('keydown', function (event) {
-    if (event.key === 'ArrowLeft') {
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowDown') {
         decrementCounter()
-    } else if (event.key === 'ArrowRight') {
+    } else if (event.key === 'ArrowRight' || event.key === 'ArrowUp') {
         incrementCounter()
-    } else if (event.key === 'Dau Cach') {
-        // TODO: call reset
+    } else if (event.key === ' ') {
+        // TODO: call reset + up-down keyboard event
+        resetCounter()
     }
-
-    // TODO: implement up/down 
 });
