@@ -47,10 +47,18 @@
     margin-top: 10px;
   }
   
+  .counter__reset-button {
+    cursor: pointer;
+  }
+  
   .counter__reset-icon {
     opacity: 0.3;
     font-size: 35px;
-    
+    transition: all 0.4s;
+  }
+  
+  .counter__reset-icon:hover {
+    opacity: 0.5;
   }
   
   .counter__buttons {
@@ -68,7 +76,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    cursor: pointer;
   }
   
   .counter__button:hover {
@@ -76,7 +84,7 @@
   }
   
   .counter__button--decrease {
-  
+    border-right: 1px solid rgba(190, 76, 173, 0.15);
   }
   
   .counter__button--increase {
@@ -87,12 +95,4 @@
     color: #b96bc4;
     opacity: 0.9;
     font-size: 40px;
-  }
-  
-  .counter__icon--minus {
-  
-  }
-  
-  .counter__icon--plus {
-    
   }
