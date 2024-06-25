@@ -5,6 +5,11 @@ const twitterNumberEl = document.querySelector('.stat__number--twitter');
 const threadNumberEl = document.querySelector('.stat__number--threads');
 
 function characterNumberCounting() {
+    if (textareaEl.value.match(/\s\s+/g)) {
+        textareaEl.value = textareaEl.value.replace(/\s\s+/g,'');
+        //console.log(/\s\s+/g);
+    }
+    
     if (textareaEl.value.includes('script')) {
         alert('Please remove the script element, you cannot use that here.');
         textareaEl.value = textareaEl.value.replace('<script>', '[Wrong input]');
@@ -38,5 +43,4 @@ function characterNumberCounting() {
 
 textareaEl.addEventListener('input', characterNumberCounting);
 
-// TODO: Replace many spaces by the correct 1 space character + trim also.
 //TODO: Make the warning in the twitter and threads cards that the number has been exceeded.
