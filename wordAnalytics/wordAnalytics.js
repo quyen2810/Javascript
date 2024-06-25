@@ -37,3 +37,6 @@ function characterNumberCounting() {
 }
 
 textareaEl.addEventListener('input', characterNumberCounting);
+
+// TODO: Replace many spaces by the correct 1 space character + trim also.
+//TODO: Make the warning in the twitter and threads cards that the number has been exceeded.
