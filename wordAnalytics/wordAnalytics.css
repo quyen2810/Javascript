@@ -94,7 +94,7 @@ body {
 }
 
 .stat__number--limit {
-    color: rgb(227, 37, 37);
+    color: red !important;
 }
 
 .second-heading {

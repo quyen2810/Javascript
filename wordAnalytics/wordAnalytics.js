@@ -20,14 +20,40 @@ function characterNumberCounting() {
 
     const twitterCharactersLeft = 30 - numberOfCharacters;
     twitterNumberEl.textContent = twitterCharactersLeft;
+
+    let twitterWarningEl = document.querySelector('.twitter--warning');
+    function showAndHideTwitterWarning () {
+        if (twitterCharactersLeft < 0) {
+            twitterWarningEl.style.display = "block";
+            twitterWarningEl.style.color = "red";
+        } else {
+            twitterWarningEl.style.display = "none";
+            twitterWarningEl.style.color = "red";
+        }
+    };
+    showAndHideTwitterWarning ();
+
     if (twitterCharactersLeft < 0) {
         twitterNumberEl.classList.add('stat__number--limit');
     } else {
         twitterNumberEl.classList.remove('stat__number--limit');
     };
 
-    const threadsCharactersLeft = 1000 - numberOfCharacters;
+    const threadsCharactersLeft = 100 - numberOfCharacters;
     threadNumberEl.textContent = threadsCharactersLeft;
+
+    let threadsWarningEl = document.querySelector('.threads--warning');
+    function showAndHideThreadsWarning () {
+        if (threadsCharactersLeft < 0) {
+            threadsWarningEl.style.display = "block";
+            threadsWarningEl.style.color = "red";
+        } else {
+            threadsWarningEl.style.display = "none";
+            threadsWarningEl.style.color = "red";
+        }
+    };
+    showAndHideThreadsWarning ();
+
     if (threadsCharactersLeft < 0) {
         threadNumberEl.classList.add('stat__number--limit');
     } else {
