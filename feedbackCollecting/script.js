@@ -1,3 +1,4 @@
+//implement counters for the input text area
 const textareaEl = document.querySelector('.form__textarea');
 
 function counter() {
