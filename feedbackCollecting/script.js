@@ -1,11 +1,13 @@
-//implement counters for the input text area
+//implement counter component for the input text area
 const textareaEl = document.querySelector('.form__textarea');
+const counterEl = document.querySelector('.counter');
+const maxNumberChars = 150;
 
 const counter = () => {
-    const charactersLeft = 150 - textareaEl.value.length;
-    document.querySelector('.counter').textContent = charactersLeft;
+    const charactersLeft = maxNumberChars - textareaEl.value.length;
+    counterEl.textContent = charactersLeft;
 };
-
+counter ();
 textareaEl.addEventListener('input', counter); 
 
 
