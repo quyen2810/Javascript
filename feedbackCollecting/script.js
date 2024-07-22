@@ -37,8 +37,21 @@ const submitHandler = event => {
             formEl.classList.remove('form--invalid');
         };
         setTimeout(remove,2000);
+        //focus on text area again to fix the invalid
+        textareaEl.focus();
+        //stop executing when it's invalid, return nothing = stop
+        return;
     }
-
+    //add the input valid text to the list, extract info from submit text
+    const hashtag = text.split(' ').find(word => word.includes('#'));
+    //console.log(text.split(' ').find(word => word.includes('#')));
+    // remove the has from hashtag
+    const company = hashtag.substring(1);
+    // take the 1st character
+    const badgeLetter = company.substring(0,1).touppercase();
+    const upvoteCount = 0;
+    const daysAgo = 0;
+    `;
 };
 
 formEl.addEventListener('submit', submitHandler);
