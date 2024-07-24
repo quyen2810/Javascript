@@ -83,3 +83,34 @@ const submitHandler = event => {
 };
 
 formEl.addEventListener('submit', submitHandler);
+
+//add the feedback list under the submission form
+//convert the data from JSON to Javascript
+fetch('https://bytegrad.com/course-assets/js/1/api/feedbacks').then(response => {
+    return response.json();
+}).then(data => {
+    //looping over the array 
+    data.feedbacks.forEach(feedbackItem => {
+         //create new html for new feedback
+        const daysAgo = 0; //TODO: investigate why I have to define this only variable again
+        const feedbackItemHTML = `
+            <li class="feedback">
+            <button class="upvote">
+                <i class="fa-solid fa-caret-up upvote__icon"></i>
+                <span class="upvote__count">${feedbackItem.upvoteCount}</span>
+            </button>
+            <section class="feedback__badge">
+                <p class="feedback__letter">${feedbackItem.badgeLetter}</p>
+            </section>
+            <div class="feedback__content">
+                <p class="feedback__company">${feedbackItem.company}</p>
+                <p class="feedback__text">${feedbackItem.text}</p>
+            </div>
+            <p class="feedback__date">${feedbackItem.daysAgo === 0 ? 'NEW' : `${daysAgo}d`}</p>
+            </li>
+        `;
+        //show new feedback item in the list
+        feedbackListEl.insertAdjacentHTML('beforeend', feedbackItemHTML);
+    });
+});
+
