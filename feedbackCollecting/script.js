@@ -1,7 +1,9 @@
 //global definition
+const MAX_CHARS = 150
+
 const textareaEl = document.querySelector('.form__textarea');
 const counterEl = document.querySelector('.counter');
-const maxNumberChars = 150;
+const maxNumberChars = MAX_CHARS;
 const formEl = document.querySelector('.form');
 const feedbackListEl = document.querySelector('.feedbacks');
 const submitBtnEl = document.querySelector('.submit-btn');
@@ -15,32 +17,27 @@ counter();
 textareaEl.addEventListener('input', counter);
 
 //implement submit component
+const showValidIndicator = (textCheck) => {
+    const className = textCheck === 'valid' ? 'form--valid' : 'form--invalid';
+    formEl.classList.add(className);
+    //hide it after 2s
+    const removeValid = () => {
+        formEl.classList.remove(className);
+    };
+    setTimeout(removeValid, 2000);
+}
 const submitHandler = event => {
     //remove default event from browser
     event.preventDefault();
-    //console.log(event);
 
     //get content from text area
     const text = textareaEl.value;
-    //console.log(text);
+
     //show valid indicator
     if (text.includes('#') && text.length >= 5) {
-        formEl.classList.add('form--valid');
-
-        //hide it after 2s
-        const removeValid = () => {
-            formEl.classList.remove('form--valid');
-        };
-        setTimeout(removeValid, 2000);
+        showValidIndicator('valid');
     } else {
-        //show invalid indicator
-        formEl.classList.add('form--invalid');
-
-        //hide it after 2s
-        const remove = () => {
-            formEl.classList.remove('form--invalid');
-        };
-        setTimeout(remove, 2000);
+        showValidIndicator('invalid');
 
         //focus on text area again to fix the invalid
         textareaEl.focus();
@@ -50,7 +47,6 @@ const submitHandler = event => {
     }
     //add the input valid text to the list, extract info from submit text
     const hashtag = text.split(' ').find(word => word.includes('#'));
-    //console.log(text.split(' ').find(word => word.includes('#')));
 
     // remove the has from hashtag
     const company = hashtag.substring(1);
@@ -83,7 +79,7 @@ const submitHandler = event => {
     //clear text, lose focus = blur on submit button, let the counter back to 150
     textareaEl.value = '';
     submitBtnEl.blur();
-    counterEl.textContent = 150;
+    counterEl.textContent = MAX_CHARS;
 };
 
 formEl.addEventListener('submit', submitHandler);
