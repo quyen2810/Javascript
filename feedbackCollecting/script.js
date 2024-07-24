@@ -3,6 +3,7 @@ const textareaEl = document.querySelector('.form__textarea');
 const counterEl = document.querySelector('.counter');
 const maxNumberChars = 150;
 const formEl = document.querySelector('.form');
+const feedbackListEl = document.querySelector('.feedbacks');
 
 //implement counter component for the input text area
 const counter = () => {
@@ -48,7 +49,7 @@ const submitHandler = event => {
     // remove the has from hashtag
     const company = hashtag.substring(1);
     // take the 1st character
-    const badgeLetter = company.substring(0, 1).touppercase();
+    const badgeLetter = company.substring(0, 1).toUpperCase();
     const upvoteCount = 0;
     const daysAgo = 0;
 
@@ -69,7 +70,8 @@ const submitHandler = event => {
         <p class="feedback__date">${daysAgo}</p>
         </li>
     `;
-    
+    //show new feedback item in the list
+    feedbackListEl.insertAdjacentHTML('beforeend', feedbackItemHTML);
 };
 
 formEl.addEventListener('submit', submitHandler);
