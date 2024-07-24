@@ -112,5 +112,8 @@ fetch('https://bytegrad.com/course-assets/js/1/api/feedbacks').then(response => 
         //show new feedback item in the list
         feedbackListEl.insertAdjacentHTML('beforeend', feedbackItemHTML);
     });
+})
+.catch(error => {
+    feedbackListEl.textContent = `Failed to fetch feedbacks. Error message: ${error.message}`;
 });
 
