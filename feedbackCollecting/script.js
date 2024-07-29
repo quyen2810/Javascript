@@ -1,5 +1,6 @@
 //global definition
-const MAX_CHARS = 150
+const MAX_CHARS = 150;
+const BASE_API_URL = 'https://bytegrad.com/course-assets/js/1/api/feedbacks';
 
 const textareaEl = document.querySelector('.form__textarea');
 const counterEl = document.querySelector('.counter');
@@ -77,7 +78,7 @@ const submitHandler = event => {
     feedbackListEl.insertAdjacentHTML('beforeend', feedbackItemHTML);
 
     //send feedback item to server
-    fetch('https://bytegrad.com/course-assets/js/1/api/feedbacks', {
+    fetch(`${BASE_API_URL}`, {
         method: 'POST',
         body: JSON.stringify(feedbackItemHTML),
         headers: {
@@ -106,7 +107,7 @@ formEl.addEventListener('submit', submitHandler);
 
 //add the feedback list under the submission form
 //convert the data from JSON to Javascript
-fetch('https://bytegrad.com/course-assets/js/1/api/feedbacks').then(response => {
+fetch(`${BASE_API_URL}`).then(response => {
     return response.json();
 }).then(data => {
     //looping over the array 
