@@ -76,6 +76,26 @@ const submitHandler = event => {
     //show new feedback item in the list
     feedbackListEl.insertAdjacentHTML('beforeend', feedbackItemHTML);
 
+    //send feedback item to server
+    fetch('https://bytegrad.com/course-assets/js/1/api/feedbacks', {
+        method: 'POST',
+        body: JSON.stringify(feedbackItemHTML),
+        headers: {
+            'Content-Type': 'application/json',
+            accept: 'application/json'
+        }
+    }).then(response => {
+        if (!response.ok) {
+            console.log('Failed to send feedback');
+            return;
+        } else {
+            console.log('Feedback sent');
+        }
+        return response.json();
+    }).catch(error => {
+        console.log(error);
+    });
+
     //clear text, lose focus = blur on submit button, let the counter back to 150
     textareaEl.value = '';
     submitBtnEl.blur();
