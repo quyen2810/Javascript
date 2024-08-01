@@ -138,7 +138,6 @@ fetch(`${BASE_API_URL}`).then(response => {
     feedbackListEl.textContent = `Failed to fetch feedbacks. Error message: ${error.message}`;
 });
 
-
 //add click event to the feedback item
 feedbackListEl.addEventListener('click', clickHandler = event => {
     if (event.target.classList.contains('upvote')) {
@@ -153,4 +152,22 @@ feedbackListEl.addEventListener('click', clickHandler = event => {
         feedbackEl.classList.toggle('feedback--expand');
     }
     console.log(event);
+});
+
+//add hashtag filter component
+const hashtagListEl = document.querySelector('.hashtags');
+hashtagListEl.addEventListener('click', clickHandler2 = event2 => {
+    const clickedEl = event2.target;
+    //stop function if clicking outside of those company hashtag buttons
+    if (!clickedEl.classList.contains('hashtag')) return;
+    //extract the company to init filtering for feedback items
+    const companyNameFromHashtag = clickedEl.textContent.substring(1).toLowerCase().trim();
+    feedbackListEl.childNodes.forEach(childNode => {
+        //stop function if it's a text node
+        if (childNode.nodeType === 3) return;
+        const companyNameFromFeedback = childNode.querySelector('.feedback__company').textContent.toLowerCase().trim();
+        if (companyNameFromHashtag !== companyNameFromFeedback) {
+            childNode.remove();
+    }
+    });
 });
